@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+  scroll-behavior: smooth;
+}
+
+.myFont{
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.handwriting {
+  font-family: "Great Vibes", cursive;
+}
 
 :root {
   --background: #ffffff;
