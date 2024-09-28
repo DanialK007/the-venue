@@ -31,7 +31,7 @@ function Signature() {
               <div className="">/</div>
               <div className="">Veggies</div>
             </div>
-            <button className="border-2 border-myColor text-myColor hover:bg-myColor hover:text-white duration-200 py-3 px-12">Order Now</button>
+            <a href="#menu" className="border-2 border-myColor text-myColor hover:bg-myColor hover:text-white duration-200 py-3 px-12">Order Now</a>
           </div>
         </div>
       </div>

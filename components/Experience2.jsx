@@ -1,10 +1,10 @@
 import React from "react";
 
-function Experience() {
+function Experience2() {
   return (
-    <div className="py-20 px-4 bg-white text-black relative">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 items-center justify-center max-w-7xl mx-auto gap-8 lg:p-8">
-        <div className="sm:col-span-2 lg:absolute top-1/2 lg:-translate-y-1/2 right-0 py-10 lg:py-20 ps-10 lg:ps-16 pe-8 lg:pe-5 bg-white shadow-2xl border-2 lg:border-e-0 border-[#b49383] lg:max-w-[640px]">
+    <div className="lg:pt-20 py-10 px-5 bg-white text-black relative">
+      <div className="grid lg:grid-cols-3 max-w-7xl mx-auto gap-8 lg:p-8">
+        <div className="lg:absolute top-1/2 lg:-translate-y-1/2 right-0 py-10 lg:py-20 ps-10 lg:ps-16 pe-8 lg:pe-5 bg-white shadow-2xl border-2 lg:border-e-0 border-[#b49383] max-w-[640px]">
           <div className="handwriting text-2xl lg:text-4xl text-[#b49383]">
             Something new
           </div>
@@ -20,16 +20,12 @@ function Experience() {
             venenatis. Nulla consequat fringilla massa.
           </div>
         </div>
-
-        <div className="">
-          <img src="grid1.png" alt="" className="w-full" />
-        </div>
-        <div className="">
-          <img src="grid2.png" alt="" className="w-full" />
+        <div className="lg:col-span-2">
+          <img src="grid3.png" alt="" className="w-full object-cover" />
         </div>
       </div>
     </div>
   );
 }
 
-export default Experience;
+export default Experience2;

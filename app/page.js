@@ -6,7 +6,8 @@ import Menu from "@/components/Menu";
 import Reservation from "@/components/Reservation";
 import Signature from "@/components/Signature";
 import Soul from "@/components/Soul";
-
+import dynamic from 'next/dynamic'
+ 
 export default function Home() {
   return (
     <>
