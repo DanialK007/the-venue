@@ -35,7 +35,7 @@ function Reservation() {
           <div className="text-xl lg:text-3xl text-myColor handwriting">
             5 Stars
           </div>
-          <div className="text-3xl lg:text-5xl pb-5">Make a Reservation</div>
+          <div className="text-3xl lg:text-5xl pb-5 text-white">Make a Reservation</div>
           <div className="grid lg:grid-cols-3 gap-5 py-10">
             <input
               type="date"
