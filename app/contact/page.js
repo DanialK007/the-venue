@@ -1,22 +1,64 @@
-import Chef from "@/components/Chef";
-import Discover from "@/components/Discover";
-import Dishes from "@/components/Dishes";
-import Footer from "@/components/Footer";
+"use client";
+import React, { useState, useRef } from "react";
+import Lottie from "lottie-react";
+import behanceAnimation from "../../public/Behance/behance.json";
+import dribbbleAnimation from "../../public/Dribbble/dribbble.json";
+import facebookAnimation from "../../public/Facebook/facebook.json";
+import instagramAnimation from "../../public/Instagram/instagram.json";
+import linkedinAnimation from "../../public/Linkedin/linkedin.json";
+import twitterAnimation from "../../public/Twitter/twitter.json";
+import youtubeAnimation from "../../public/YouTube/youtube.json";
+import githubAnimation from "../../public/Github/github.json";
 import Header from "@/components/Header";
 import HeroHalf from "@/components/HeroHalf";
 import Reservation from "@/components/Reservation";
-import Testimonial from "@/components/Testimonial";
-import {
-  FaBehance,
-  FaDribbble,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaPinterest,
-  FaTwitter,
-} from "react-icons/fa";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  // Define hovered icon state for each social media icon
+  const [hoveredIcon, setHoveredIcon] = useState(null);
+
+  // Create refs for each Lottie animation instance
+  const lottieRefs = {
+    behance: useRef(null),
+    dribbble: useRef(null),
+    facebook: useRef(null),
+    instagram: useRef(null),
+    linkedin: useRef(null),
+    twitter: useRef(null),
+    youtube: useRef(null),
+    github: useRef(null),
+  };
+
+  const handleMouseEnter = (icon) => {
+    setHoveredIcon(icon);
+    lottieRefs[icon].current.play(); // Start playing the animation on hover
+  };
+
+  const handleMouseLeave = (icon) => {
+    setHoveredIcon(null);
+    lottieRefs[icon].current.stop(); // Stop the animation when not hovered
+  };
+
+  const renderIcon = (iconName, animationData) => {
+    return (
+      <a
+        href="#"
+        onMouseEnter={() => handleMouseEnter(iconName)}
+        onMouseLeave={() => handleMouseLeave(iconName)}
+        className="p-2 opacity-60 hover:opacity-100"
+      >
+        <Lottie
+          lottieRef={lottieRefs[iconName]} // Pass the ref for manual control
+          animationData={animationData}
+          loop={false} // Only plays once on hover
+          autoplay={false} // Prevent automatic play on load
+          style={{ width: 24, height: 24 }}
+        />
+      </a>
+    );
+  };
+
   return (
     <>
       <Header />
@@ -24,7 +66,7 @@ export default function Home() {
       <div className="py-20 bg-white text-black">
         <div className="max-w-7xl mx-auto p-5 lg:p-8">
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="">
+            <div>
               <div className="text-2xl lg:text-4xl">Contact info</div>
               <div className="py-10 text-black/60">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -53,28 +95,15 @@ export default function Home() {
                   <div className="col-span-2 pt-[0.3rem] text-sm">
                     yourmail@gmail.com
                   </div>
-                  <div className="col-span-3 flex justify-between px-5 pt-8">
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaPinterest />
-                    </a>
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaFacebook />
-                    </a>
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaInstagram />
-                    </a>
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaTwitter />
-                    </a>
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaDribbble />
-                    </a>
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaBehance />
-                    </a>
-                    <a href="" className="hover:text-myColor p-2">
-                      <FaLinkedin />
-                    </a>
+                  <div className="col-span-3 flex justify-between pt-8">
+                    {renderIcon("facebook", facebookAnimation)}
+                    {renderIcon("instagram", instagramAnimation)}
+                    {renderIcon("twitter", twitterAnimation)}
+                    {renderIcon("linkedin", linkedinAnimation)}
+                    {renderIcon("youtube", youtubeAnimation)}
+                    {renderIcon("behance", behanceAnimation)}
+                    {renderIcon("dribbble", dribbbleAnimation)}
+                    {renderIcon("github", githubAnimation)}
                   </div>
                 </div>
               </div>
