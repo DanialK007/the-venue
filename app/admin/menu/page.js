@@ -12,7 +12,7 @@ const AdminPanel = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/menu");
+        const response = await fetch("https://venue-api-three.vercel.app/api/menu");
         if (!response.ok) {
           throw new Error("Network response failed");
         }
@@ -29,7 +29,7 @@ const AdminPanel = () => {
   const deleteDish = async (dishId, categoryId) => {
     try {
       console.log("Deleting dish with ID:", dishId, "from category:", categoryId);
-      await axios.delete(`http://localhost:8000/api/menu/${categoryId}/dishes/${dishId}`);
+      await axios.delete(`https://venue-api-three.vercel.app/api/menu/${categoryId}/dishes/${dishId}`);
       fetchMenu(); // Reload menu after deleting
     } catch (err) {
       console.error("Error deleting dish:", err);
@@ -93,7 +93,7 @@ const AdminPanel = () => {
           fetchMenuItems={() => {
             const fetchMenu = async () => {
               try {
-                const response = await fetch("http://localhost:8000/api/menu");
+                const response = await fetch("https://venue-api-three.vercel.app/api/menu");
                 const data = await response.json();
                 setMenuItems(data);
               } catch (error) {

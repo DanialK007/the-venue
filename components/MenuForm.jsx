@@ -24,11 +24,11 @@ const MenuForm = ({ dish, categoryId, setCurrentDish, fetchMenuItems }) => {
       if (dish._id) {
         // Update existing dish
         console.log("Updating dish with ID:", dish._id, "in category:", categoryId);
-        await axios.put(`http://localhost:8000/api/menu/${categoryId}/dishes/${dish._id}`, newDish);
+        await axios.put(`https://venue-api-three.vercel.app/api/menu/${categoryId}/dishes/${dish._id}`, newDish);
       } else {
         // Add new dish
         console.log("Adding new dish to category:", categoryId);
-        await axios.post(`http://localhost:8000/api/menu/${categoryId}/dishes`, newDish); // Ensure categoryId is used here
+        await axios.post(`https://venue-api-three.vercel.app/api/menu/${categoryId}/dishes`, newDish); // Ensure categoryId is used here
       }
       setCurrentDish(null); // Close form after saving
       fetchMenuItems(); // Refresh menu items

@@ -127,7 +127,7 @@ function MenuList() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/menu");
+        const response = await fetch("https://venue-api-three.vercel.app/api/menu");
         if (!response.ok) {
           throw new Error("Network response failed");
         }
@@ -228,6 +228,18 @@ function MenuList() {
   //   );
   // }
 
+  function LoadingItem() {
+    return (
+      <div className="p-8 bg-neutral-200">
+        <div className="w-32 h-6 bg-neutral-300"></div>
+        <div className="mt-16 w-64 h-6 bg-neutral-300"></div>
+        <div className="mt-5 w-44 h-6 bg-neutral-300"></div>
+        <div className="mt-16 w-64 h-6 bg-neutral-300"></div>
+        <div className="mt-5 w-44 h-6 bg-neutral-300"></div>
+      </div>
+    );
+  }
+
   return (
     <>
       <button
@@ -239,7 +251,7 @@ function MenuList() {
             {cart.length}
           </div>
           {/* <FaCartArrowDown /> */}
-          <img src="cart.png" alt="" className="w-5 opacity-60"/>
+          <img src="cart.png" alt="" className="w-5 opacity-60" />
         </div>
       </button>
 
@@ -260,7 +272,7 @@ function MenuList() {
             className="fixed bottom-10 right-5 md:right-10 bg-white border-2 shadow-xl text-xl size-12 flex items-center justify-center rounded-full border-myColor text-black/70"
           >
             {/* <FaFileExport /> */}
-            <img src="quit.png" alt="" className="w-6 opacity-80"/>
+            <img src="quit.png" alt="" className="w-6 opacity-80" />
           </button>
           <div className="text-4xl">The cart list</div>
           {cart.length > 0 ? (
@@ -327,10 +339,10 @@ function MenuList() {
         }`}
       >
         {loading && (
-          <div className="lg:col-span-3 grid grid-cols-3 gap-8 h-[400px] animate-pulse">
-            <div className="bg-neutral-400"></div>
-            <div className="bg-neutral-400"></div>
-            <div className="bg-neutral-400"></div>
+          <div className="lg:col-span-3 grid lg:grid-cols-3 gap-8 min-h-[400px] animate-pulse">
+            <LoadingItem />
+            <LoadingItem />
+            <LoadingItem />
           </div>
         )}
         {menu.map((category) => (
